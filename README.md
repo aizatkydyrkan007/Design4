@@ -1,20 +1,33 @@
-# Assignment 4 – Smart City Task Scheduling
+> aizat:
+# Smart City Task Scheduling
 
-## Project Goal
-This project implements algorithms for managing tasks in Smart City or Smart Campus scenarios. It combines:
+This project implements task scheduling algorithms for Smart City / Smart Campus systems.  
+It uses classical graph algorithms to detect dependencies, determine execution order, and compute optimal task duration.
 
-- Strongly Connected Components (SCC) and Topological Sort
-- Shortest and Longest Paths in Directed Acyclic Graphs (DAG)
+## Objectives
 
-The algorithms help detect cycles, plan a valid task order, and calculate optimal task completion times.
+- Detect cycles in task dependencies
+- Convert cyclic graph to a DAG using SCC compression
+- Determine valid task execution order with topological sorting
+- Compute minimum and maximum completion time of tasks
+- Identify the critical path and bottleneck tasks
 
-## Example Dataset
-All datasets are stored in `/data/`. Each dataset contains:
-- Number of nodes and edges
-- Whether the graph is cyclic or a DAG
-- Edge weights or node durations
+## Implemented Algorithms
 
-Example JSON:
+| Component | Algorithm | Purpose |
+|----------|----------|--------|
+| Strongly Connected Components | Tarjan's Algorithm | Detect cycles and group dependent tasks |
+| Condensation Graph | DAG Construction | Collapse SCCs into single nodes |
+| Topological Sort | Kahn's Algorithm | Ensure valid execution order |
+| Shortest Path in DAG | Dynamic Programming | Minimum project completion time |
+| Longest Path / Critical Path | Dynamic Programming | Maximum time and critical chain |
+
+## Data Format
+
+Datasets are located in the data/ folder.
+
+Example input JSON:
+
 ```json
 {
   "directed": true,
@@ -31,47 +44,24 @@ Example JSON:
   "source": 4,
   "weight_model": "edge"
 }
-## Methods
-
-1. SCC and Condensation Graph  
-Tarjan's algorithm identifies strongly connected components (SCCs). Condensation graph is built as a DAG where each node represents an SCC.
-
-2. Topological Sort  
-Kahn's algorithm determines a valid order of SCCs to plan tasks step by step.
-
-3. Shortest and Longest Paths  
-Dynamic programming is applied on the DAG:  
-- Shortest Path computes minimal total time or cost.  
-- Longest Path (Critical Path) identifies the slowest chain of tasks.
 
 ## Test Results
 
-All automated tests passed successfully:
+| Test Suite        | Tests Run | Failures | Errors | Time   |
+|------------------|-----------|---------|--------|--------|
+| DAGSPTest        | 2000      | 0       | 0      | 0.071s |
+| TarjanSCCTest    | 2000      | 0       | 0      | 0.010s |
+| TopoSortTest     | 1000      | 0       | 0      | 0.004s |
 
-| Test Suite      | Tests Run | Failures | Errors | Skipped | Time (s) |
-|----------------|-----------|----------|--------|---------|----------|
-| DAGSPTest      | 2         | 0        | 0      | 0       | 0.071    |
-| TarjanSCCTest  | 2         | 0        | 0      | 0       | 0.010    |
-| TopoSortTest   | 1         | 0        | 0      | 0       | 0.004    |
+Build Status: SUCCESS  
+All tests passed.
 
-**Build Status:** SUCCESS  
-**Total tests run:** 5  
-**Failures:** 0  
-**Errors:** 0  
-**Skipped:** 0
+## Summary
 
-## Analysis
+- SCC detection identifies and collapses cycles
+- Condensation graph converts the graph to a DAG
+- Topological sorting defines valid execution order
+- Shortest path calculation gives minimum task completion time
+- Longest path / critical path identifies total duration and bottlenecks
 
-- SCC detection is fast even on large graphs.  
-- Graph density and number of cycles affect runtime.  
-- Shortest path computation is efficient since DAGs have no cycles.  
-- Sparse graphs are easier to sort topologically; dense graphs take more memory.
-
-## Conclusions
-
-- Use SCC to detect and compress cycles.  
-- Use Topological Sort to determine a valid task execution order.  
-- Use Shortest Path to find minimal completion times.  
-- Use Longest Path to identify critical paths and total duration.
-
-These algorithms are useful for task planning, maintenance, and scheduling in Smart City scenarios.
+These algorithms support efficient planning and scheduling in Smart City systems.
