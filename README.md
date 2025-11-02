@@ -45,23 +45,37 @@ Example input JSON:
   "weight_model": "edge"
 }
 
-## Test Results
+🧪 Test Results
 
-| Test Suite        | Tests Run | Failures | Errors | Time   |
-|------------------|-----------|---------|--------|--------|
-| DAGSPTest        | 2000      | 0       | 0      | 0.071s |
-| TarjanSCCTest    | 2000      | 0       | 0      | 0.010s |
-| TopoSortTest     | 1000      | 0       | 0      | 0.004s |
+All automated unit tests passed successfully.
 
-Build Status: SUCCESS  
-All tests passed.
+Test Suite	Tests Run	Failures	Errors	Skipped	Time (s)
+DAGSPTest	2	0	0	0	0.071
+TarjanSCCTest	2	0	0	0	0.010
+TopoSortTest	1	0	0	0	0.004
 
-## Summary
+✅ Build Status: SUCCESS
+Total tests run: 5
+Failures: 0 Errors: 0 Skipped: 0
 
-- SCC detection identifies and collapses cycles
-- Condensation graph converts the graph to a DAG
-- Topological sorting defines valid execution order
-- Shortest path calculation gives minimum task completion time
-- Longest path / critical path identifies total duration and bottlenecks
+📊 Analysis
 
-These algorithms support efficient planning and scheduling in Smart City systems.
+SCC detection performs efficiently even on large graphs.
+
+Graph density and number of cycles influence runtime.
+
+Shortest path computation is fast since DAGs contain no cycles.
+
+Sparse graphs are easier to topologically sort, while dense graphs require more memory.
+
+🧭 Conclusions
+
+Use SCC to detect and compress cyclic dependencies.
+
+Use Topological Sort to define valid task execution order.
+
+Use Shortest Path to compute minimal completion times.
+
+Use Longest Path to identify critical paths and total project duration.
+
+These algorithms are essential for task planning, maintenance scheduling, and workflow optimization in Smart City environments
