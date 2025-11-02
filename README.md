@@ -34,6 +34,7 @@ undefined
   "directed": true,
   "n": 8,
   "edges": [
+  
     {"u": 0, "v": 1, "w": 3},
     {"u": 1, "v": 2, "w": 2},
     {"u": 2, "v": 3, "w": 4},
@@ -49,7 +50,14 @@ undefined
 ##  Test Results
 All automated unit tests passed successfully.
 
-Test SuiteTests RunFailuresErrorsSkippedTime (s)DAGSPTest20000.071TarjanSCCTest20000.010TopoSortTest10000.004
+Test SuiteTests RunFailuresErrorsSkippedTime (s)
+
+DAGSPTest20000.071
+
+TarjanSCCTest20000.010
+
+TopoSortTest10000.004
+
 ✅ Build Status: SUCCESS
 Total Tests Run: 5 | Failures: 0 | Errors: 0 | Skipped: 0
 
