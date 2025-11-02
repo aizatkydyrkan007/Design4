@@ -1,34 +1,32 @@
-> aizat:
-# Smart City Task Scheduling
+🏙️ Smart City Task Scheduling
 
-This project implements task scheduling algorithms for Smart City / Smart Campus systems.  
-It uses classical graph algorithms to detect dependencies, determine execution order, and compute optimal task duration.
+This project implements task scheduling algorithms for Smart City / Smart Campus environments.
+It uses classical graph algorithms to analyze dependencies, define execution order, and optimize total task duration.
 
-## Objectives
+🎯 Objectives
 
-- Detect cycles in task dependencies
-- Convert cyclic graph to a DAG using SCC compression
-- Determine valid task execution order with topological sorting
-- Compute minimum and maximum completion time of tasks
-- Identify the critical path and bottleneck tasks
+Detect cycles in task dependencies
 
-## Implemented Algorithms
+Convert cyclic graphs into DAGs using SCC compression
 
-| Component | Algorithm | Purpose |
-|----------|----------|--------|
-| Strongly Connected Components | Tarjan's Algorithm | Detect cycles and group dependent tasks |
-| Condensation Graph | DAG Construction | Collapse SCCs into single nodes |
-| Topological Sort | Kahn's Algorithm | Ensure valid execution order |
-| Shortest Path in DAG | Dynamic Programming | Minimum project completion time |
-| Longest Path / Critical Path | Dynamic Programming | Maximum time and critical chain |
+Determine valid task execution order via Topological Sorting
 
-## Data Format
+Compute minimum and maximum completion times for all tasks
 
-Datasets are located in the data/ folder.
+Identify the critical path and bottleneck tasks
 
-Example input JSON:
+⚙️ Implemented Algorithms
+Component	Algorithm	Purpose
+Strongly Connected Components (SCC)	Tarjan's Algorithm	Detect cycles and group mutually dependent tasks
+Condensation Graph	DAG Construction	Collapse SCCs into single nodes
+Topological Sort	Kahn's Algorithm	Ensure valid execution order
+Shortest Path in DAG	Dynamic Programming	Compute minimum project completion time
+Longest Path / Critical Path	Dynamic Programming	Identify maximum time and critical task chain
+🗂️ Data Format
 
-```json
+All datasets are stored in the data/ folder.
+
+Example Input (JSON)
 {
   "directed": true,
   "n": 8,
@@ -55,27 +53,26 @@ TarjanSCCTest	2	0	0	0	0.010
 TopoSortTest	1	0	0	0	0.004
 
 ✅ Build Status: SUCCESS
-Total tests run: 5
-Failures: 0 Errors: 0 Skipped: 0
+Total Tests Run: 5 | Failures: 0 | Errors: 0 | Skipped: 0
 
 📊 Analysis
 
-SCC detection performs efficiently even on large graphs.
+SCC detection runs efficiently even on large graphs.
 
-Graph density and number of cycles influence runtime.
+Graph density and number of cycles influence runtime performance.
 
-Shortest path computation is fast since DAGs contain no cycles.
+Shortest Path computation is fast since DAGs contain no cycles.
 
-Sparse graphs are easier to topologically sort, while dense graphs require more memory.
+Sparse graphs are easier to sort topologically, while dense graphs require more memory.
 
 🧭 Conclusions
 
 Use SCC to detect and compress cyclic dependencies.
 
-Use Topological Sort to define valid task execution order.
+Apply Topological Sort to define valid task execution order.
 
 Use Shortest Path to compute minimal completion times.
 
 Use Longest Path to identify critical paths and total project duration.
 
-These algorithms are essential for task planning, maintenance scheduling, and workflow optimization in Smart City environments
+These algorithms form the foundation for task planning, maintenance scheduling, and workflow optimization in Smart City systems.
